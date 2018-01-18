@@ -11,7 +11,7 @@ RUN npm install
 
 # Create Cleanup
 COPY cleanup /etc/cron.d/cleanup
-RUN cleanup 0644 /etc/cron.d/cleanup
+RUN chmod 0644 /etc/cron.d/cleanup
 RUN service cron start
 
 # Expose ports
