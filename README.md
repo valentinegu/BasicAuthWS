@@ -1,6 +1,7 @@
 # BasicAuthWS
-Basic Auth SOAP Web Service
+Basic Authentication SOAP Web Service
 
+For now only Username "user" and password "pass" are allowed :)
 
 #### `Install and Run `
 ```shell
