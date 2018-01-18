@@ -2,7 +2,7 @@
 Basic Auth SOAP Web Service
 
 
-build :
-git clone https://github.com/valentinegu/BasicAuthWS.git
-cd BasicAuthWS
-docker build -t basic-auth-ws .
+build :</br>
+git clone https://github.com/valentinegu/BasicAuthWS.git</br>
+cd BasicAuthWS</br>
+docker build -t basic-auth-ws .</br>
