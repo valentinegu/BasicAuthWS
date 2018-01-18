@@ -1,7 +1,7 @@
 FROM alpine
 
 # Core dependencies
-RUN apk add --update --no-cache nodejs cron && \
+RUN apk add --update --no-cache nodejs && \
 	rm -rf /var/cache/apk/*
 
 # Basics
@@ -10,9 +10,9 @@ WORKDIR /opt/node/bws
 RUN npm install
 
 # Create Cleanup
-RUN touch /var/log/cron.log
-RUN (crontab -l ; echo "*/1 * * * * find /opt/node/bws -mtime +3 -type f -delete >> /var/log/cron.log") | crontab
-CMD cron 
+COPY cleanup /etc/cron.d/cleanup
+RUN cleanup 0644 /etc/cron.d/cleanup
+RUN service cron start
 
 # Expose ports
 EXPOSE 8080
