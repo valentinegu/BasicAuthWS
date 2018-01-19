@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<wsdl:definitions name="auth" targetNamespace="http://10.100.74.71:8000/auth" xmlns="http://10.100.74.71:8000/auth" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+<wsdl:definitions name="auth" targetNamespace="http://LOCALHOST/auth" xmlns="http://LOCALHOST/auth" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:xs="http://www.w3.org/2001/XMLSchema">
   <wsdl:message name="authRequest">
     <wsdl:part name="name" type="xs:string"/>
     <wsdl:part name="pass" type="xs:string"/>
@@ -48,7 +48,7 @@
   </wsdl:binding>
   <wsdl:service name="ws">
     <wsdl:port binding="authB" name="authWS">
-      <soap:address location="http://10.100.74.71:8001/auth"/>
+      <soap:address location="http://LOCALHOST/auth"/>
     </wsdl:port>
   </wsdl:service>
 </wsdl:definitions>
