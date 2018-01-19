@@ -17,4 +17,4 @@ EXPOSE 8001
 USER 1001
 
 # Run
-CMD ["/usr/bin/node", "index.js"]
+CMD ["/usr/bin/node", "index.js", "sed -i \"s/LOCALHOST/$extIP/g\" auth.wsdl"]
