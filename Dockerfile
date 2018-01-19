@@ -8,9 +8,10 @@ RUN apk add --update --no-cache nodejs && \
 COPY / /opt/node/bws
 WORKDIR /opt/node/bws
 RUN npm install
+RUN chown -R 1001:1001 /opt/node/bws
 
 # Expose ports
-EXPOSE 8080
+EXPOSE 8001
 
 # UID to use when running the image and for CMD
 USER 1001
