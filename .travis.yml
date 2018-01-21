@@ -24,3 +24,8 @@ after_success:
     docker login -u $DOCKER_USER -p $DOCKER_PASS;
     docker push $REPO;
     fi
+
+deploy:
+  provider: heroku
+  api_key:
+    secre: 33WZ5umabnrN83qlRlZgVFDwwraw7/jMtNh2kfYeNN4m9c9zs+X0OH5QcCu6MygVWGndafoR15IofvRgvNGEcUObdY8k605KdTzM838ApLV8t1OBtNMOJ5x2UnqTZzui9YHLG2ZkEdd7Heh6MZtsIV3ReQA2PeSRVgacn8fMoYsxkz70jdO4KkjD6YHTKTZB5XRTVZ6t894MRmP/rdg+245Bq8Z4porKoguCNl1NMRmndHvLq4UsBYBg9YInv8XzVAxUG+QEM2dFtZxooJbUhXgsH0vnbGQ+lgBOHSx+o6IcWYypYcWvB0+QcbV/zS2dJp//qpubtOzl7N4QudiS7TsM3f9nG6RQq9b9zjUORoCiCQSca8s1Ifx3/W/HP2neH43920XuX6o1zH2+T7MMcXxjrfE+ZyrJmdEAXvF8KWH3Q7c0l5+Zdji18crVb4Pt9HQb5GKwvORgqyEk929GDJO33n2FAPxADW0Elc0XRvDoUnhlNo/UNPJahlDhqkKDX+z5LCYgE1iVo9O7UQ8uPSwEFak85f1U9Outc+y2srAjvil9eOWFt7xS07EfyqdkbW6bCYgvjF48R1NKffInHzGPNWY2yYvH4u5XTwvabs6FZXRczkl6rVmmPn3Rk9vAb+N8+32RcfAoJZfViUwY4ORCQEj+PtYGgrUULmreh1g=
