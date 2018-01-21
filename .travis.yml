@@ -16,7 +16,7 @@ script:
   - docker run -dit -p 80:8001 $REPO
   - sleep 3
   - docker ps -a
-  - curl http://10.100.74.70/auth -d '<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:auth="http://127.0.0.1:8000/auth"><soapenv:Header/><soapenv:Body><auth:auth><name>user</name><pass>pass</pass></auth:auth></soapenv:Body></soapenv:Envelope>' | grep 'authres'
+  - curl http://127.0.0.1/auth -d '<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:auth="http://127.0.0.1:8000/auth"><soapenv:Header/><soapenv:Body><auth:auth><name>user</name><pass>pass</pass></auth:auth></soapenv:Body></soapenv:Envelope>' | grep 'authres'
 
 after_success:
   - docker images
