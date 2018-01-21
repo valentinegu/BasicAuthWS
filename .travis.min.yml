@@ -1,0 +1,11 @@
+language: node_js
+node_js:
+  - "lts/*"
+
+install:
+  - npm install
+  - node index.js &
+  - sleep 3
+
+script:
+  - <soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:auth="http://127.0.0.1:8000/auth"><soapenv:Header/><soapenv:Body><auth:auth><name>user</name><pass>pass</pass></auth:auth></soapenv:Body></soapenv:Envelope> | grep 'authres>1<'
