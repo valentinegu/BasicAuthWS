@@ -41,6 +41,6 @@ var server = http.createServer(function(request,response) {
 	response.end("404: Not Found: "+request.url);
 });
 
-server.listen(8001);
+server.listen(process.env.PORT || 8080, function(){ console.log('Node.js app is listening on port:', this.address().port) })
 soap.listen(server, '/auth', service, xml);
 
