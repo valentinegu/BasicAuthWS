@@ -11,7 +11,7 @@ RUN npm install
 RUN chown -R 1001:1001 /opt/node/bws
 
 # Expose ports
-EXPOSE 8001
+EXPOSE 8080
 
 # UID to use when running the image and for CMD
 USER 1001
