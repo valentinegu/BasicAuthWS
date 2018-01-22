@@ -49,5 +49,10 @@ docker run -dit -p 80:8080 --name baws --env extIP=<EXTERNAL IP ADDRESS> --resta
 
 #### `Peek under the hood :)`
 ```shell
+#Login to the container
 docker exec -it baw /bin/sh
+
+#Getting the LOGS
+docker logs -f baws
 ```
+
