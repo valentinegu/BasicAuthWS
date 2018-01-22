@@ -16,7 +16,7 @@ two methods are supprted :
      </soapenv:Body>
   </soapenv:Envelope>
   ```
- #### 2.Check validety of an OTP ( at the moment random 6 chareckter string ) like so:
+ #### 2.Check validety of an OTP ( at the moment random 6 character string ) like so:
  
   ```
   <soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:auth="http://LOCALHOST:8000/auth">
