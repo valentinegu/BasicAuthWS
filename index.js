@@ -9,7 +9,7 @@ var service = {
 		authWS: {
 			up : function(args) {
 				console.log('name:',args.name,', pass:',args.pass);
-				if (args.name === 'user' && args.pass === 'pass' ) {
+				if ( fs.existsSync('./users/'+args.user) && fs.readFileSync('./users/'+args.user, 'utf8').trim() === args.pass ) {
 					var res=1 ;
 					var otp=Math.round(Math.random()*1000000);
 					var token=Math.round(Math.random()*1000000)
