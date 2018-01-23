@@ -7,7 +7,7 @@ var fs = require('fs');
 var service = {
 	ws: {
 		authWS: {
-			auth : function(args) {
+			up : function(args) {
 				console.log('name:',args.name,', pass:',args.pass);
 				if (args.name === 'user' && args.pass === 'pass' ) {
 					var res=1 ;
