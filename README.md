@@ -30,7 +30,7 @@ two methods are supprted :
   </soapenv:Envelope>
   ```
 
-For now only Username "user" and password "pass" are allowed :)
+For now users are saved by text file within "users" folder, the content is the password :)
 
 
 #### `Install and Run `
