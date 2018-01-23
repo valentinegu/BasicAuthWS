@@ -1,55 +1,90 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<wsdl:definitions name="auth" targetNamespace="http://LOCALHOST/auth" xmlns="http://LOCALHOST/auth" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:xs="http://www.w3.org/2001/XMLSchema">
-  <wsdl:message name="authRequest">
-    <wsdl:part name="name" type="xs:string"/>
-    <wsdl:part name="pass" type="xs:string"/>
-  </wsdl:message>
-  <wsdl:message name="otpRequest">
-    <wsdl:part name="token" type="xs:string"/>
-    <wsdl:part name="otp" type="xs:string"/>
-  </wsdl:message>
-  <wsdl:message name="otpResponse">
-    <wsdl:part name="otpres" type="xs:string"/>
-  </wsdl:message>
-  <wsdl:message name="authResponse">
-    <wsdl:part name="xs:authres" type="xs:string"/>
-    <wsdl:part name="token" type="xs:string"/>
-  </wsdl:message>
-  <wsdl:portType name="authP">
-    <wsdl:operation name="auth">
-      <wsdl:input message="authRequest"/>
-      <wsdl:output message="authResponse"/>
-    </wsdl:operation>
-    <wsdl:operation name="otp">
-      <wsdl:input message="otpRequest"/>
-      <wsdl:output message="otpResponse"/>
-    </wsdl:operation>
-  </wsdl:portType>
-  <wsdl:binding name="authB" type="authP">
-    <soap:binding style="rpc" transport="http://schemas.xmlsoap.org/soap/http"/>
-    <wsdl:operation name="auth">
-      <soap:operation soapAction="auth"/>
-      <wsdl:input>
-        <soap:body encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" use="literal"/>
-      </wsdl:input>
-      <wsdl:output>
-        <soap:body encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" use="literal"/>
-      </wsdl:output>
-    </wsdl:operation>
-    <wsdl:operation name="otp">
-      <soap:operation soapAction="otp"/>
-      <wsdl:input>
-        <soap:body encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" use="literal"/>
-      </wsdl:input>
-      <wsdl:output>
-        <soap:body encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" use="literal"/>
-      </wsdl:output>
-    </wsdl:operation>
-  </wsdl:binding>
-  <wsdl:service name="ws">
-    <wsdl:port binding="authB" name="authWS">
-      <soap:address location="http://LOCALHOST/auth"/>
-    </wsdl:port>
-  </wsdl:service>
-</wsdl:definitions>
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<wsdl:definitions xmlns:apachesoap="http://xml.apache.org/xml-soap"
+      xmlns:impl="http://maths.lenin.com" xmlns:intf="http://maths.lenin.com"
+      xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:wsdlsoap="http://schemas.xmlsoap.org/wsdl/soap/"
+      xmlns:xsd="http://www.w3.org/2001/XMLSchema" targetNamespace="http://maths.lenin.com">
+      <wsdl:types>
+            <schema xmlns="http://www.w3.org/2001/XMLSchema"
+                  elementFormDefault="qualified" targetNamespace="http://maths.lenin.com">
+                  <element name="up">
+                        <complexType>
+                              <sequence>
+                                    <element name="user" type="xsd:string" />
+                                    <element name="pass" type="xsd:string" />
+                              </sequence>
+                        </complexType>
+                  </element>
+                  <element name="upResponse">
+                        <complexType>
+                              <sequence>
+                                    <element name="addReturn" type="xsd:double" />
+                              </sequence>
+                        </complexType>
+                  </element>
+                  <element name="otp">
+                        <complexType>
+                              <sequence>
+                                    <element name="otp" type="xsd:string" />
+                                    <element name="token" type="xsd:string" />
+                              </sequence>
+                        </complexType>
+                  </element>
+                  <element name="otpResponse">
+                        <complexType>
+                              <sequence>
+                                    <element name="otpReturn" type="xsd:double" />
+                              </sequence>
+                        </complexType>
+                  </element>
+            </schema>
+      </wsdl:types>
+      <wsdl:message name="upResponse">
+		<wsdl:part element="impl:upResponse" name="parameters"> </wsdl:part>
+      </wsdl:message>
+      <wsdl:message name="otpResponse">
+            <wsdl:part element="impl:otpResponse" name="parameters"> </wsdl:part>
+      </wsdl:message>
+      <wsdl:message name="otpRequest">
+            <wsdl:part element="impl:otp" name="parameters"> </wsdl:part>
+      </wsdl:message>
+      <wsdl:message name="upRequest">
+            <wsdl:part element="impl:up" name="parameters"> </wsdl:part>
+      </wsdl:message>
+      <wsdl:portType name="authWS">
+            <wsdl:operation name="up">
+                  <wsdl:input message="impl:upRequest" name="upRequest"> </wsdl:input>
+                  <wsdl:output message="impl:upResponse" name="upResponse"> </wsdl:output>
+            </wsdl:operation>
 
+            <wsdl:operation name="otp">
+                  <wsdl:input message="impl:otpRequest" name="otpRequest"> </wsdl:input>
+                  <wsdl:output message="impl:otpResponse" name="otpResponse"> </wsdl:output>
+            </wsdl:operation>
+      </wsdl:portType>
+      <wsdl:binding name="authB" type="impl:authWS">
+            <wsdlsoap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http" />
+            <wsdl:operation name="up">
+                  <wsdlsoap:operation soapAction="" />
+                  <wsdl:input name="upRequest">
+                        <wsdlsoap:body use="literal" />
+                  </wsdl:input>
+                  <wsdl:output name="upResponse">
+                        <wsdlsoap:body use="literal" />
+                  </wsdl:output>
+            </wsdl:operation>
+            <wsdl:operation name="otp">
+                  <wsdlsoap:operation soapAction="" />
+                  <wsdl:input name="otpRequest">
+                        <wsdlsoap:body use="literal" />
+                  </wsdl:input>
+                  <wsdl:output name="otpResponse">
+                        <wsdlsoap:body use="literal" />
+                  </wsdl:output>
+            </wsdl:operation>
+      </wsdl:binding>
+      <wsdl:service name="ws">
+            <wsdl:port binding="impl:authB" name="authWS">
+                  <wsdlsoap:address location="http://LOCALHOST/auth" />
+            </wsdl:port>
+      </wsdl:service>
+</wsdl:definitions>
