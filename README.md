@@ -2,7 +2,7 @@
 Basic Authentication SOAP Web Service, uses NodeJS SOAP and HTTP modules
 
 WSDL file can be reached via <b>'/auth?wsld'</b>
-two methods are supprted :
+two methods are supported :
 
 #### 1. authenticate user+pass by sending them via SOAP like so:
   ```
@@ -16,7 +16,7 @@ two methods are supprted :
      </soapenv:Body>
   </soapenv:Envelope>
   ```
- #### 2.Check validety of an OTP ( at the moment random 6 character string ) like so:
+ #### 2.Check validity of an OTP ( at the moment random 6 character string ) like so:
  
   ```
   <soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:auth="http://LOCALHOST:8000/auth">
